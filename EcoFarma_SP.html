@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EcoFarma SP — Descarte consciente de medicamentos</title>
+<meta name="description" content="Encontre pontos de descarte de medicamentos vencidos ou em desuso e suas embalagens no estado de São Paulo.">
+<style>
+:root{--g:#146c43;--g2:#198754;--bg:#f8faf9;--dark:#10231a;--muted:#64746b;--line:#dfe8e2}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;color:#24332b;background:var(--bg)}
+a{text-decoration:none;color:inherit}button,input{font:inherit}.wrap{max-width:1160px;margin:auto;padding:0 20px}
+header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line)}nav{height:70px;display:flex;align-items:center;justify-content:space-between}.brand{font-size:23px;font-weight:800;color:var(--g)}.navlinks{display:flex;gap:22px;font-size:14px}.navlinks a:hover{color:var(--g)}
+.hero{background:linear-gradient(135deg,#0e4e30,#1d8c59);color:#fff;padding:72px 0 78px}.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:42px;align-items:center}.eyebrow{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.86}
+h1{font-size:clamp(38px,5vw,62px);line-height:1.03;margin:12px 0 20px;letter-spacing:-.04em}.hero p{font-size:18px;line-height:1.65;max-width:650px;color:#e9f7ef}
+.search{background:#fff;padding:8px;border-radius:16px;display:flex;gap:8px;max-width:650px;margin-top:28px;box-shadow:0 14px 35px #062c1b55}.search input{border:0;outline:0;flex:1;padding:14px 12px;color:#18251e;min-width:0}.search button{border:0;background:var(--g);color:#fff;padding:13px 20px;border-radius:11px;font-weight:700;cursor:pointer}.hint{font-size:13px!important;opacity:.8}
+.hero-box{background:#ffffff12;border:1px solid #ffffff2b;border-radius:24px;padding:28px}.map-art{height:280px;border-radius:18px;background:radial-gradient(circle at 45% 45%,#72d29a55 0 7%,transparent 8%),linear-gradient(135deg,#ffffff12,#ffffff05);display:grid;place-items:center;position:relative;overflow:hidden}.map-art:before{content:"SP";font-weight:900;font-size:130px;color:#ffffff20}.pin{position:absolute;width:15px;height:15px;background:#fff;border:4px solid #79dca4;border-radius:50%}.p1{left:30%;top:38%}.p2{left:58%;top:55%}.p3{left:72%;top:30%}.p4{left:46%;top:72%}
+section{padding:66px 0}.section-head{max-width:730px;margin-bottom:30px}h2{font-size:35px;letter-spacing:-.025em;margin:0 0 12px;color:var(--dark)}.lead{color:var(--muted);line-height:1.7}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:23px;box-shadow:0 8px 24px #18362908}.icon{font-size:27px}.card h3{margin:12px 0 8px;font-size:17px}.card p{margin:0;color:var(--muted);line-height:1.6;font-size:14px}
+.notice{background:#eaf7ef;border:1px solid #cce9d7;border-radius:18px;padding:22px;margin-top:25px}.notice strong{color:var(--g)}
+.search-result{display:none;margin-top:25px}.result-top{display:flex;justify-content:space-between;gap:15px;align-items:center;margin-bottom:15px}.result-top h3{margin:0}.badge{background:#e9f7ef;color:var(--g);padding:7px 10px;border-radius:999px;font-size:12px;font-weight:700}.point{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;justify-content:space-between;gap:20px;align-items:center;margin:10px 0}.point strong{display:block;margin-bottom:5px}.point small{color:var(--muted)}.route{border:0;background:var(--g);color:#fff;border-radius:10px;padding:10px 14px;cursor:pointer;font-weight:700}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:22px}.info{background:#fff;border:1px solid var(--line);border-radius:20px;padding:27px}.info h2{font-size:28px}.info li{margin:11px 0;color:var(--muted);line-height:1.5}
+.quiz{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;margin:13px 0}.question{font-weight:800}.answers{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}.answers button{border:1px solid #ccd8d0;background:#fff;border-radius:10px;padding:10px 18px;cursor:pointer}.feedback{display:none;margin-top:14px;border-radius:12px;padding:13px;font-size:14px;line-height:1.5}.correct{background:#eaf7ef;color:#135b38}.wrong{background:#fff0ef;color:#8c2118}
+.faq{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;margin:10px 0}.faq summary{cursor:pointer;font-weight:700}.faq p{color:var(--muted);line-height:1.65;margin-bottom:0}
+footer{background:#0e1c15;color:#b9c8bf;padding:48px 0 25px}.foot{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:25px}.foot h3{color:#fff;margin-top:0}.author{background:#172a20;border:1px solid #274337;border-radius:15px;padding:17px}.author strong{color:#fff}.author small{display:block;margin-top:5px;line-height:1.5}.copy{border-top:1px solid #294036;margin-top:28px;padding-top:20px;text-align:center;font-size:13px}
+@media(max-width:900px){.hero-grid,.two{grid-template-columns:1fr}.cards{grid-template-columns:1fr 1fr}.foot{grid-template-columns:1fr 1fr}.navlinks{display:none}}
+@media(max-width:560px){.cards{grid-template-columns:1fr}.foot{grid-template-columns:1fr}.search{flex-direction:column}.search button{width:100%}.point{align-items:flex-start;flex-direction:column}.route{width:100%}}
+</style>
+</head>
+<body>
+<header><nav class="wrap"><a class="brand" href="#">EcoFarma</a><div class="navlinks"><a href="#buscar">Encontrar ponto</a><a href="#perigos">Uso seguro</a><a href="#quiz">Quiz</a><a href="#faq">Dúvidas</a></div></nav></header>
+
+<main>
+<section class="hero" id="buscar"><div class="wrap hero-grid">
+<div><div class="eyebrow">São Paulo • descarte consciente</div>
+<h1>Seu medicamento não precisa virar um problema ambiental.</h1>
+<p>Encontre pontos de descarte de medicamentos vencidos ou em desuso e suas embalagens em cidades do estado de São Paulo.</p>
+<div class="search"><input id="city" list="cities" placeholder="Digite sua cidade, bairro ou CEP" aria-label="Cidade, bairro ou CEP"><datalist id="cities"></datalist><button onclick="searchPoint()">Encontrar ponto</button></div>
+<p class="hint">Ex.: São Paulo, Campinas, Santos, Osasco, Sorocaba ou Ribeirão Preto.</p></div>
+<div class="hero-box"><div class="map-art"><span class="pin p1"></span><span class="pin p2"></span><span class="pin p3"></span><span class="pin p4"></span></div></div>
+</div></section>
+
+<section><div class="wrap">
+<div class="section-head"><h2>O descarte começa em uma escolha simples</h2><p class="lead">Medicamentos vencidos ou em desuso devem ser levados a pontos de coleta participantes.</p></div>
+<div class="cards">
+<div class="card"><div class="icon">💊</div><h3>Medicamentos vencidos</h3><p>Leve os medicamentos que passaram da validade ao ponto de coleta.</p></div>
+<div class="card"><div class="icon">📦</div><h3>Medicamentos sem uso</h3><p>Sobras de medicamentos que não serão mais utilizadas podem seguir a logística reversa.</p></div>
+<div class="card"><div class="icon">♻️</div><h3>Embalagens</h3><p>O sistema também contempla embalagens de medicamentos.</p></div>
+<div class="card"><div class="icon">🏪</div><h3>Farmácias e drogarias</h3><p>Os pontos de recebimento são instalados em estabelecimentos participantes.</p></div>
+</div>
+<div class="notice"><strong>Importante:</strong> o coletor de medicamentos não é um ecoponto geral. Agulhas, termômetros, gaze, produtos químicos, raio X, pilhas, baterias, máscaras, exames e testes não devem ser colocados nesses coletores.</div>
+<div id="result" class="search-result"></div>
+</div></section>
+
+<section id="perigos" style="background:#fff"><div class="wrap">
+<div class="section-head"><h2>O uso incorreto também pode trazer riscos</h2><p class="lead">Descartar corretamente é importante, mas usar medicamentos de forma responsável também faz parte do cuidado com a saúde.</p></div>
+<div class="cards">
+<div class="card"><div class="icon">⚠️</div><h3>Automedicação</h3><p>Pode mascarar sintomas e atrasar a busca por atendimento.</p></div>
+<div class="card"><div class="icon">🧪</div><h3>Dose inadequada</h3><p>Pode reduzir o efeito ou aumentar o risco de reações adversas.</p></div>
+<div class="card"><div class="icon">🦠</div><h3>Antibióticos</h3><p>O uso inadequado contribui para a resistência bacteriana.</p></div>
+<div class="card"><div class="icon">🤝</div><h3>Não compartilhe</h3><p>Um medicamento indicado para uma pessoa pode não ser adequado para outra.</p></div>
+</div></div></section>
+
+<section><div class="wrap two">
+<div class="info"><h2>Por que fazer a coleta?</h2><ul><li>Evita descarte inadequado no lixo, pia ou vaso sanitário.</li><li>Reduz a possibilidade de exposição acidental de pessoas e animais.</li><li>Ajuda a evitar resíduos farmacêuticos no ambiente.</li><li>Permite que o medicamento siga o fluxo de logística reversa.</li></ul></div>
+<div class="info"><h2>Como funciona?</h2><ol><li>Separe medicamentos vencidos ou em desuso.</li><li>Encontre uma farmácia ou drogaria com ponto de coleta.</li><li>Leve os medicamentos e suas embalagens ao coletor.</li><li>O material segue para destinação ambientalmente adequada.</li></ol></div>
+</div></section>
+
+<section id="quiz" style="background:#fff"><div class="wrap"><div class="section-head"><h2>Teste seus conhecimentos</h2><p class="lead">Escolha uma resposta e veja a explicação.</p></div>
+<div class="quiz"><div class="question">1. Posso jogar um medicamento vencido na pia ou no vaso sanitário?</div><div class="answers"><button onclick="answer(this,false,'q1')">Sim</button><button onclick="answer(this,true,'q1')">Não</button></div><div id="q1" class="feedback"></div></div>
+<div class="quiz"><div class="question">2. Posso compartilhar um medicamento que foi prescrito para mim?</div><div class="answers"><button onclick="answer(this,false,'q2')">Sim</button><button onclick="answer(this,true,'q2')">Não</button></div><div id="q2" class="feedback"></div></div>
+<div class="quiz"><div class="question">3. Medicamentos sem uso podem ser levados a um ponto de coleta participante?</div><div class="answers"><button onclick="answer(this,true,'q3')">Sim</button><button onclick="answer(this,false,'q3')">Não</button></div><div id="q3" class="feedback"></div></div>
+<div class="quiz"><div class="question">4. Agulhas devem ser colocadas no coletor de medicamentos?</div><div class="answers"><button onclick="answer(this,false,'q4')">Sim</button><button onclick="answer(this,true,'q4')">Não</button></div><div id="q4" class="feedback"></div></div>
+<div class="quiz"><div class="question">5. O descarte correto ajuda a reduzir riscos ambientais?</div><div class="answers"><button onclick="answer(this,true,'q5')">Sim</button><button onclick="answer(this,false,'q5')">Não</button></div><div id="q5" class="feedback"></div></div>
+</div></section>
+
+<section id="faq"><div class="wrap"><div class="section-head"><h2>Perguntas frequentes</h2></div>
+<details class="faq"><summary>O que posso levar?</summary><p>O LogMed informa que os pontos recebem medicamentos vencidos, medicamentos sem uso, caixas de remédios e recipientes vazios.</p></details>
+<details class="faq"><summary>Posso colocar pilhas, baterias ou eletrônicos junto?</summary><p>Não. O coletor de medicamentos não é destinado a resíduos eletroeletrônicos, pilhas ou baterias.</p></details>
+<details class="faq"><summary>Como encontro um ponto?</summary><p>Use a busca acima e, para conferir os pontos oficiais, abra o localizador do LogMed.</p></details>
+</div></section>
+</main>
+
+<footer><div class="wrap foot">
+<div><h3>EcoFarma</h3><p>Descarte correto de medicamentos para um estado de São Paulo mais sustentável.</p><p style="font-size:13px">Projeto educativo independente. Confira o ponto no localizador oficial antes de ir.</p></div>
+<div class="author"><strong>Vitória Araújo</strong><small>Conteúdo Científico • Pesquisa Farmacêutica</small></div>
+<div class="author"><strong>Maurício Manoel Gonçalves de Oliveira</strong><small>Desenvolvimento Full Stack • UX/UI</small></div>
+</div><div class="wrap copy">© 2026 EcoFarma. Todos os direitos reservados.</div></footer>
+
+<script>
+const cidades=["São Paulo","Osasco","Campinas","Santos","Sorocaba","Ribeirão Preto","São José dos Campos","Jundiaí","Guarulhos","Barueri","Santo André","São Bernardo do Campo","São Caetano do Sul","Mogi das Cruzes","Bauru","Piracicaba","Franca","São José do Rio Preto","Taubaté","Presidente Prudente","Araraquara","Marília","Americana","Itu","Carapicuíba","Cotia","Itapevi","Taboão da Serra","Embu das Artes","Diadema"];
+document.getElementById("cities").innerHTML=cidades.map(c=>`<option value="${c}">`).join("");
+
+function searchPoint(){
+ const value=document.getElementById("city").value.trim();
+ if(!value){alert("Digite uma cidade, bairro ou CEP.");return;}
+ const r=document.getElementById("result"); r.style.display="block";
+ r.innerHTML=`<div class="result-top"><h3>Pontos de descarte para: ${escapeHtml(value)}</h3><span class="badge">MEDICAMENTOS</span></div>
+ <div class="point"><div><strong>Localizador oficial LogMed</strong><small>Consulte pontos específicos para medicamentos e suas embalagens por cidade, endereço ou CEP.</small></div><button class="route" onclick="openLogmed()">Ver pontos oficiais</button></div>
+ <div class="notice"><strong>Consulta segura:</strong> o EcoFarma não inventa endereços. Para mostrar apenas pontos de medicamentos realmente cadastrados, a consulta é feita no localizador oficial.</div>`;
+ r.scrollIntoView({behavior:"smooth",block:"center"});
+}
+function openLogmed(){window.open("https://logmed.org.br/onde-descartar","_blank");}
+const exp={
+q1:"Resposta correta: Não. O descarte deve ser feito em ponto de coleta participante, evitando a destinação inadequada de resíduos farmacêuticos.",
+q2:"Resposta correta: Não. Medicamentos devem ser usados conforme orientação adequada; uma indicação para uma pessoa pode não ser apropriada para outra.",
+q3:"Resposta correta: Sim. Medicamentos vencidos ou sem uso estão entre os materiais destinados aos pontos de coleta do sistema.",
+q4:"Resposta correta: Não. Agulhas não devem ser colocadas nos coletores de medicamentos.",
+q5:"Resposta correta: Sim. O descarte consciente ajuda a evitar formas inadequadas de poluição e permite o fluxo correto de logística reversa."
+};
+function answer(btn,correct,id){const box=document.getElementById(id);box.style.display="block";box.className="feedback "+(correct?"correct":"wrong");box.textContent=(correct?"✅ Você acertou! ":"❌ Você errou. ")+exp[id];btn.parentElement.querySelectorAll("button").forEach(b=>b.disabled=true)}
+function escapeHtml(s){return s.replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+</script>
+</body></html>
